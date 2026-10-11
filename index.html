@@ -1,0 +1,472 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#2563eb">
+
+    <title>CampaSharingSmiles</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body>
+
+    <div class="app-container">
+
+        <!-- BARRA LATERAL -->
+        <aside class="sidebar" id="sidebar">
+
+            <div class="sidebar-brand">
+                <div class="brand-icon">
+                    <i class="fa-solid fa-heart"></i>
+                </div>
+
+                <div class="brand-text">
+                    <h2>SharingSmiles</h2>
+                    
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <span class="nav-label">MENÚ PRINCIPAL</span>
+
+                <a href="#inicio" class="nav-link active" data-section="inicio">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Inicio</span>
+                </a>
+
+                <a href="#registro" class="nav-link" data-section="registro">
+                    <i class="fa-solid fa-user-plus"></i>
+                    <span>Registrar paciente</span>
+                </a>
+
+                <a href="#pacientes" class="nav-link" data-section="pacientes">
+                    <i class="fa-solid fa-users"></i>
+                    <span>Pacientes registrados</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="sidebar-footer-icon">
+                    <i class="fa-solid fa-hand-holding-heart"></i>
+                </div>
+
+                <p>Compartiendo sonrisas, transformando vidas.</p>
+            </div>
+
+        </aside>
+
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <main class="main-content">
+
+            <!-- BARRA SUPERIOR -->
+            <header class="topbar">
+
+                <button
+                    type="button"
+                    class="menu-toggle"
+                    id="menuToggle"
+                    aria-label="Abrir menú"
+                >
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+            
+
+                <div class="topbar-badge">
+                    <i class="fa-solid fa-heart"></i>
+                    <span>Sharing Smiles</span>
+                </div>
+
+            </header>
+
+            <!-- INICIO -->
+            <section class="page-section" id="inicio">
+
+                <div class="hero-section">
+
+                    <div class="hero-content">
+                        
+
+                        <h2>Una sonrisa puede cambiarlo todo.</h2>
+
+                        <p>
+                            Administra los registros de pacientes y sus fotografías
+                            desde un solo lugar, de manera sencilla y organizada.
+                        </p>
+
+                        <a href="#registro" class="btn btn-primary hero-button">
+                            <i class="fa-solid fa-plus"></i>
+                            Registrar paciente
+                        </a>
+                    </div>
+
+                    <div class="hero-decoration">
+                        <i class="fa-solid fa-face-smile"></i>
+                    </div>
+
+                </div>
+
+                <!-- ESTADÍSTICAS -->
+                <div class="stats-grid">
+
+                    <article class="stat-card">
+                        <div class="stat-icon stat-blue">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+
+                        <div class="stat-info">
+                            <span>Total de pacientes</span>
+                            <h3 id="totalPacientes">0</h3>
+                            <small>Registros almacenados</small>
+                        </div>
+                    </article>
+
+                    <article class="stat-card">
+                        <div class="stat-icon stat-orange">
+                            <i class="fa-solid fa-map-location-dot"></i>
+                        </div>
+
+                        <div class="stat-info">
+                            <span>Departamentos</span>
+                            <h3 id="totalDepartamentos">0</h3>
+                            <small>Con pacientes registrados</small>
+                        </div>
+                    </article>
+
+                    <article class="stat-card">
+                        <div class="stat-icon stat-green">
+                            <i class="fa-solid fa-calendar-check"></i>
+                        </div>
+
+                        <div class="stat-info">
+                            <span>Registros de hoy</span>
+                            <h3 id="pacientesHoy">0</h3>
+                            <small>Pacientes registrados hoy</small>
+                        </div>
+                    </article>
+
+                </div>
+
+            </section>
+
+            <!-- REGISTRO -->
+            <section class="page-section" id="registro">
+
+                <div class="section-heading">
+                    <div>
+                        <span class="section-eyebrow">NUEVO REGISTRO</span>
+                        <h2>Registrar paciente</h2>
+                        <p>Completa la información del paciente y adjunta su fotografía.</p>
+                    </div>
+                </div>
+
+                <div class="content-card">
+
+                    <form id="formPaciente" class="patient-form">
+
+                        <div class="form-grid">
+
+                            <div class="form-group">
+                                <label for="nombrePaciente">
+                                    Nombre completo
+                                    <span class="required">*</span>
+                                </label>
+
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-user"></i>
+
+                                    <input
+                                        type="text"
+                                        id="nombrePaciente"
+                                        name="nombre_Paciente"
+                                        placeholder="Nombre completo del paciente"
+                                        maxlength="150"
+                                        required
+                                    >
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="fechaNacimiento">
+                                    Fecha de nacimiento
+                                    <span class="required">*</span>
+                                </label>
+
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-calendar-days"></i>
+
+                                    <input
+                                        type="date"
+                                        id="fechaNacimiento"
+                                        name="fecha_nacimiento"
+                                        required
+                                    >
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="departamento">
+                                    Departamento
+                                    <span class="required">*</span>
+                                </label>
+
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-map-location-dot"></i>
+
+                                    <select
+                                        id="departamento"
+                                        name="departamento"
+                                        required
+                                    >
+                                        <option value="">Selecciona un departamento</option>
+                                        <option value="Chuquisaca">Chuquisaca</option>
+                                        <option value="La Paz">La Paz</option>
+                                        <option value="Cochabamba">Cochabamba</option>
+                                        <option value="Oruro">Oruro</option>
+                                        <option value="Potosí">Potosí</option>
+                                        <option value="Tarija">Tarija</option>
+                                        <option value="Santa Cruz">Santa Cruz</option>
+                                        <option value="Beni">Beni</option>
+                                        <option value="Pando">Pando</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="provincia">
+                                    Provincia
+                                    <span class="required">*</span>
+                                </label>
+
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-map"></i>
+
+                                    <input
+                                        type="text"
+                                        id="provincia"
+                                        name="provincia"
+                                        placeholder="Provincia"
+                                        maxlength="100"
+                                        required
+                                    >
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="municipio">
+                                    Municipio
+                                    <span class="required">*</span>
+                                </label>
+
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-location-dot"></i>
+
+                                    <input
+                                        type="text"
+                                        id="municipio"
+                                        name="municipio"
+                                        placeholder="Municipio"
+                                        maxlength="100"
+                                        required
+                                    >
+                                </div>
+                            </div>
+
+                            <!-- FOTOGRAFÍA -->
+                            <div class="form-group photo-form-group">
+
+                                <label for="fotoPaciente">
+                                    Fotografía del paciente
+                                </label>
+
+                                <label for="fotoPaciente" class="photo-upload-area">
+                                    <div class="photo-upload-icon">
+                                        <i class="fa-solid fa-cloud-arrow-up"></i>
+                                    </div>
+
+                                    <div class="photo-upload-text">
+                                        <strong>Seleccionar fotografía</strong>
+                                        <span>JPG, PNG o WEBP · Máximo 5 MB</span>
+                                    </div>
+
+                                    <input
+                                        type="file"
+                                        id="fotoPaciente"
+                                        name="foto"
+                                        accept="image/jpeg,image/png,image/webp"
+                                        hidden
+                                    >
+                                </label>
+
+                                <div id="vistaFoto" class="photo-preview" hidden>
+                                    <img
+                                        id="previewFoto"
+                                        src=""
+                                        alt="Vista previa de la fotografía seleccionada"
+                                    >
+
+                                    <div class="photo-preview-info">
+                                        <span id="nombreArchivoFoto">Fotografía seleccionada</span>
+
+                                        <button
+                                            type="button"
+                                            id="quitarFoto"
+                                            class="btn-remove-photo"
+                                        >
+                                            <i class="fa-solid fa-trash"></i>
+                                            Quitar foto
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="reset" class="btn btn-secondary" id="limpiarFormulario">
+                                <i class="fa-solid fa-eraser"></i>
+                                Limpiar
+                            </button>
+
+                            <button type="submit" class="btn btn-primary" id="btnGuardar">
+                                <i class="fa-solid fa-floppy-disk"></i>
+                                Guardar paciente
+                            </button>
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </section>
+
+            <!-- LISTA DE PACIENTES -->
+            <section class="page-section" id="pacientes">
+
+                <div class="section-heading patients-heading">
+                    <div>
+                        <span class="section-eyebrow">BASE DE DATOS</span>
+                        <h2>Pacientes registrados</h2>
+                        <p>Consulta las fotografías y los datos de los pacientes.</p>
+                    </div>
+
+                    <button
+                        type="button"
+                        id="btnImprimirFotos"
+                        class="btn btn-secondary"
+                    >
+                        <i class="fa-solid fa-print"></i>
+                        Imprimir fotografías
+                    </button>
+                </div>
+
+                <div class="content-card">
+
+                    <div class="search-bar">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                        <input
+                            type="search"
+                            id="buscarPaciente"
+                            placeholder="Buscar por nombre, departamento, provincia o municipio..."
+                            autocomplete="off"
+                        >
+                    </div>
+
+                    <div id="estadoCarga" class="loading-state">
+                        <i class="fa-solid fa-spinner fa-spin"></i>
+                        <span>Cargando pacientes...</span>
+                    </div>
+
+                    <div id="listaPacientes" class="patients-grid"></div>
+
+                    <div id="sinPacientes" class="empty-state" hidden>
+                        <div class="empty-state-icon">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+
+                        <h3>No hay pacientes para mostrar</h3>
+
+                        <p>Registra un paciente o modifica tu búsqueda.</p>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- PIE DE PÁGINA -->
+            <footer class="app-footer">
+
+                <span>SharingSmiles · Gestión de pacientes</span>
+            </footer>
+
+        </main>
+
+    </div>
+
+    <!-- NOTIFICACIONES -->
+    <div
+        id="notificacion"
+        class="notification"
+        role="status"
+        aria-live="polite"
+        hidden
+    >
+        <i id="iconoNotificacion" class="fa-solid fa-circle-check"></i>
+        <span id="mensajeNotificacion"></span>
+    </div>
+
+    <!-- MODAL DE VISTA PREVIA -->
+    <div
+        id="modalFoto"
+        class="modal-foto"
+        aria-hidden="true"
+    >
+        <div
+            class="modal-foto-contenido"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="nombreModalFoto"
+        >
+            <button
+                type="button"
+                id="cerrarModalFoto"
+                class="cerrar-modal-foto"
+                aria-label="Cerrar vista previa"
+            >
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <img
+                id="imagenModalFoto"
+                src=""
+                alt="Fotografía ampliada del paciente"
+            >
+
+            <p id="nombreModalFoto" class="nombre-modal-foto"></p>
+        </div>
+    </div>
+
+    <script type="module" src="js/app.js"></script>
+
+</body>
+</html>
